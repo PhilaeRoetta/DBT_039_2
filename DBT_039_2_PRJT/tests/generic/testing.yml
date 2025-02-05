@@ -1,0 +1,8 @@
+models:
+  - name: stg_orderitems
+    description: {{doc('generate_doc')}}
+    columns:
+    - name: ORDER_REVENUE
+      description: 'this is a test for positive values'
+      tests:
+      - test_positive_values
