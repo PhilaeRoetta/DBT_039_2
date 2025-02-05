@@ -1,0 +1,25 @@
+-- version: 2
+
+sources:
+  - name: DBT0392
+    database: DBT
+    schema: DBT_039_2
+    tables:
+      - name: ord
+        identifier: ORDERS
+      - name: item
+        identifier: ORDERITEMS
+        loaded_at_field: UPDATED_AT
+        freshness:
+          warn_after:
+            count: 1
+            period: day
+          error_after:
+            count: 2
+            period: day
+        columns:
+        - name: UNITPRICE
+          tests:
+          - test_positive_values
+      - name: cust
+        identifier: CUSTOMERS
